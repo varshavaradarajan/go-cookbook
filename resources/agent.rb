@@ -56,7 +56,8 @@ action :create do
   autoregister_values[:log_directory] = log_directory
   if autoregister_values[:go_server_url].nil?
     autoregister_values[:go_server_host] = new_resource.go_server_host || autoregister_values[:go_server_host] || 'localhost'
-    autoregister_values[:go_server_url] = "https://#{autoregister_values[:go_server_host]}:8154/go"
+    # TODO - after releasing the breaking change to remove host and port, if go-server url is nil, default to https://localhost:8154/go
+    autoregister_values[:go_server_url] = "https://#{autoregister_values[:go_server_host]}:#{autoregister_values[:go_server_port]}/go"
     Chef::Log.warn("Go server not found on Chef server or not specifed via node['gocd']['agent']['go_server_url'] attribute, defaulting Go server to #{autoregister_values[:go_server_url]}")
   end
 

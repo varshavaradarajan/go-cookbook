@@ -1,3 +1,15 @@
+# Next Release
+
+## Breaking changes
+
+* The attributes `GO_SERVER_HOST` and `GO_SERVER_PORT` are removed in favour of `go_server_url`
+
+# Upcoming release
+
+## Deprecations
+
+* The attributes `GO_SERVER_HOST` and `GO_SERVER_PORT` are deprecated and will be removed in the next release. Users are encouraged to use `GO_SERVER_URL`
+
 # 1.3.2
 
 * Changes all URLs from go.cd to gocd.io.

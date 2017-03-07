@@ -34,7 +34,6 @@ module Gocd
           if values[:key] = go_server['gocd']['server']['autoregister_key']
             Chef::Log.warn("Agent auto-registration enabled. This agent will not require approval to become active.")
           end
-          values[:go_server_url] = "https://#{go_server}:#{values[:go_server_port]}/go"
         end
       end
       values[:hostname]     = node['gocd']['agent']['autoregister']['hostname']
