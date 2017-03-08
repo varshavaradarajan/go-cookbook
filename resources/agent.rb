@@ -20,6 +20,13 @@ property :elastic_agent_id, :kind_of => [ String, nil ], :required => false, :de
 property :elastic_agent_plugin_id, :kind_of => [ String, nil ], :required => false, :default => nil
 
 action :create do
+  if !node['gocd']['agent']['go_server_host'].nil? || !node['gocd']['agent']['go_server_port'].nil?
+    log "Warn obsolete attributes" do
+      message "Please note that node['gocd']['agent']['go_server_host'] and node['gocd']['agent']['go_server_port'] have been replaced by node['gocd']['agent']['go_server_url']"
+      level :warn
+    end
+  end
+
   include_recipe 'gocd::agent_linux_install'
 
   agent_name = new_resource.agent_name
