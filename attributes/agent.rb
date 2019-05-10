@@ -14,6 +14,11 @@
 # limitations under the License.
 ##########################################################################
 
+default['java']['install_flavor'] = 'adoptopenjdk'
+default['java']['jdk_version'] = 11
+default['java']['arch'] = 'x86_64'
+default['java']['adoptopenjdk']['variant'] = 'hotspot'
+
 default['gocd']['agent']['go_server_url'] = nil
 default['gocd']['agent']['daemon'] = true
 
